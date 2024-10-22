@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import userRouter from './routes/userRoutes.mjs';
+import recipeRouter from './routes/recipeRoutes.mjs';
 import connectDB from './db/conn.mjs';
 //set up server/dotenv
 const app = express();
@@ -18,7 +18,7 @@ app.use(bodyParser.json({extended:true}));
 
 
 //routers
-app.use('/user',userRouter)
+app.use('/recipe',recipeRouter)
 
 //app.listen
 app.listen(PORT,()=>{

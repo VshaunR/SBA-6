@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 const router = express.Router();
 
-
+//get all recipes
 router.get('/',(req,res)=>{
   try {
     res.send('testing get route')
