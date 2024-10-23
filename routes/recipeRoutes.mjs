@@ -17,4 +17,8 @@ const router = express.Router();
 //posting new recipe
 
 router.post('/',recipeCTL.postRecipe)
+
+
+//getting all the recipes
+router.get('/',recipeCTL.getAllRecipe)
 export default router;

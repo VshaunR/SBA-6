@@ -11,7 +11,7 @@ async function postRecipe(req,res){
         newRecipe._id =new mongoose.Types.ObjectId();
         newRecipe. authorName=req.body.authorName;
          newRecipe.recipeName=req.body.recipeName;
-         console.log(req.body)
+        //  console.log(req.body)
          req.body.ingredients.forEach((ing)=>{
           newRecipe.ingredients.push(ing)
          })
@@ -40,7 +40,9 @@ async function postRecipe(req,res){
 async function getAllRecipe(req,res){
 
   try {
-    
+    let allRecipes= await Recipe.find({});
+    console.log(allRecipes)
+    res.status(200).json(allRecipes)
   } catch (e) {
     console.error(e);
     res.status(500).json({msg:`Server Error`})
@@ -75,4 +77,4 @@ async function deleteRecipe(req,res){
 
 
 
-export default {postRecipe};
+export default {postRecipe,getAllRecipe};
