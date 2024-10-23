@@ -18,7 +18,7 @@ app.use(bodyParser.json({extended:true}));
 
 
 //routers
-app.use('/recipe',recipeRouter)
+app.use('/recipe',recipeRouter);
 
 //app.listen
 app.listen(PORT,()=>{
