@@ -63,7 +63,8 @@ async function editRecipe(req,res){
 async function deleteRecipe(req,res){
 
   try {
-    
+    let deleteRecipe = await Recipe.findByIdAndDelete(req.params.id);
+    res.json(deleteRecipe)
   } catch (e) {
     console.error(e);
     res.status(500).json({msg:`Server Error`})
@@ -78,4 +79,4 @@ async function deleteRecipe(req,res){
 
 
 
-export default {postRecipe,getAllRecipe,editRecipe};
+export default {postRecipe,getAllRecipe,editRecipe,deleteRecipe};

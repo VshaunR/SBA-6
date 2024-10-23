@@ -24,5 +24,8 @@ router.get('/',recipeCTL.getAllRecipe);
 
 
 //edit recipe by id
-router.put('/:id',recipeCTL.editRecipe)
+router.put('/:id',recipeCTL.editRecipe);
+
+//delete recipe by id
+router.delete('/:id',recipeCTL.deleteRecipe)
 export default router;
