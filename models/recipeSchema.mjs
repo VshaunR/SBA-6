@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Author from './authorSchema.mjs'
+import Author from '../DepricatedScemas/authorSchema.mjs'
 const {Schema} = mongoose;
 
 
@@ -7,10 +7,10 @@ const {Schema} = mongoose;
 
 const recipeSchema = new mongoose.Schema({
  _id:Schema.Types.ObjectId,
- authorName:{
+
+ recipeCategory:{
   type:String,
-  required:true,
-  unique:true
+  required:true
  },
  recipeName:{
   type:String,
@@ -25,7 +25,7 @@ description:{
 type:String,
 required:true
 },
-author:[{type:Schema.Types.ObjectId,ref:'Author'}],
+// author:[{type:Schema.Types.ObjectId,ref:'Author'}],
 
 });
 

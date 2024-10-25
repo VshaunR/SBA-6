@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Recipe from '../models/recipeSchema.mjs';
-import Author from '../models/authorSchema.mjs';
+import Author from '../DepricatedScemas/authorSchema.mjs';
 
 
 
@@ -9,6 +9,7 @@ async function postRecipe(req,res){
   try {
       const newRecipe = new Recipe()
         newRecipe._id =new mongoose.Types.ObjectId();
+        newRecipe.recipeCategory = req.body.recipeCategory;
         newRecipe. authorName=req.body.authorName;
          newRecipe.recipeName=req.body.recipeName;
         //  console.log(req.body)
@@ -23,13 +24,13 @@ async function postRecipe(req,res){
       //   name:newRecipe.authorName,
       //   recipe:newRecipe._id
       // })
-      const newAuthor = new Author();
-      newAuthor.name= newRecipe.authorName;
-      newAuthor.recipes.push(newRecipe._id)
-      newRecipe.author =newAuthor._id
+      // const newAuthor = new Author();
+      // newAuthor.name= newRecipe.authorName;
+      // newAuthor.recipes.push(newRecipe._id)
+      // newRecipe.author =newAuthor._id
       await newRecipe.save();
-      await newAuthor.save();
-      res.status(200).json(newAuthor)
+      // await newAuthor.save();
+      res.status(200).json(newRecipe)
   } catch (e) {
     console.error(e);
     res.status(500).json({msg:`Server Error`})

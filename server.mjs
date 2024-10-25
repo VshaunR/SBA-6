@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import recipeRouter from './routes/recipeRoutes.mjs';
+import userRouter from './routes/userRoutes.mjs';
 import connectDB from './db/conn.mjs';
 //set up server/dotenv
 const app = express();
@@ -19,6 +20,7 @@ app.use(bodyParser.json({extended:true}));
 
 //routers
 app.use('/recipe',recipeRouter);
+app.use('/user',userRouter);
 
 //app.listen
 app.listen(PORT,()=>{
