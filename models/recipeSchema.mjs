@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-import Author from '../DepricatedScemas/authorSchema.mjs'
+// import Author from '../DepricatedScemas/authorSchema.mjs'
 const {Schema} = mongoose;
 
 
 
 
 const recipeSchema = new mongoose.Schema({
- _id:Schema.Types.ObjectId,
+ 
 
  recipeCategory:{
   type:String,
@@ -29,5 +29,5 @@ required:true
 
 });
 
-
+recipeSchema.index({recipeCategory:1})
 export default mongoose.model("Recipe",recipeSchema);

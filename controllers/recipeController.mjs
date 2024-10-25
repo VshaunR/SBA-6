@@ -8,7 +8,7 @@ async function postRecipe(req,res){
 
   try {
       const newRecipe = new Recipe()
-        newRecipe._id =new mongoose.Types.ObjectId();
+        // newRecipe._id =new mongoose.Types.ObjectId();
         newRecipe.recipeCategory = req.body.recipeCategory;
         newRecipe. authorName=req.body.authorName;
          newRecipe.recipeName=req.body.recipeName;
