@@ -29,5 +29,9 @@ required:true
 
 });
 
-recipeSchema.index({recipeCategory:1})
+recipeSchema.index({recipeCategory:1});
+recipeSchema.query.byRecipeName= function(recipeName){
+  return this.find({recipeName: new RegExp(recipeName,'i')})
+}
+
 export default mongoose.model("Recipe",recipeSchema);
